@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+# AUTHORS: Michał Kobiec & Tomasz M. Krystyan
+
 import random
 import time
 
