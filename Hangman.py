@@ -10,7 +10,7 @@ capitals = ["Tirana","Andorra","Yerevan","Vienna","Minsk","Brussels","Sarajevo",
 "Vilnius","Luxembourg","Skopje","Valletta","Chisinau","Monaco","Podgorica","Amsterdam","Oslo","Warsaw","Lisbon",
 "Bucharest","Moscow","San Marino","Belgrade","Bratislava","Ljubljana","Madrid","Stockholm","Bern","Ankara"]
 
-# Pick (randomly) one city from the list of contained in script European capitals.
+# Pick (randomly) one city from the list of (contained in script) European capitals.
 chosen_capital = random.choice(capitals)
 
 # List of letters contained in current randomly picked word (European capital).
