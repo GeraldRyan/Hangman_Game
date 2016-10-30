@@ -137,31 +137,39 @@ def hangman(life):
         start_again('')
 
 def start_again(enter):
-    """Resetting the global values."""
-    global life
-    global chosen_capital
-    global letters
+   """Resetting the global values."""
+   global life
+   global chosen_capital
+   global letters
+   global failed_attempts
+   global start_time
+   global guess_count
 
-    once_again = input("{}Would you like to start again? (""\"""Yes""\""" to continue): ".format(enter))
-            
-    if once_again.lower() == "yes":     # Be insensitive to the lower- or uppercase of letters.
-        life = 5
-        chosen_capital = random.choice(capitals)
-        letters = []
-        for x in range(len(chosen_capital)):
-            if chosen_capital[x] != " ":
-                letters.append("_")
-            else:
-                letters.append(" ")
-    else:
-        exit()
+   once_again = input("{}Would you like to start again? (""\"""Yes""\""" to continue): ".format(enter))
 
+   if once_again.lower() == "yes":     # Be insensitive to the lower- or uppercase of letters.
+       life = 5
+       chosen_capital = random.choice(capitals)
+       letters = []
+       failed_attempts = []
+       start_time = time.time()
+       guess_count = 0
+
+
+       for x in range(len(chosen_capital)):
+           if chosen_capital[x] != " ":
+               letters.append("_")
+           else:
+               letters.append(" ")
+   else:
+       exit()
+       
 def win():
     elapsed_time = time.time() - start_time
     
     print("\nThe European capital is (in English):"," ".join(letters))
 
-    print("\nYou guessed after: {} tries. It took you {} seconds. {}".format(guess_count,round(elapsed_time,2)))
+    print("\nYou guessed after: {} tries. It took you {} seconds.".format(guess_count,round(elapsed_time,2)))
         
     time.sleep(4)
 
@@ -192,6 +200,7 @@ def win():
 intro()                     # Displays game welcome logo at the beginning.
 
 start_time = time.time()    # Remember the actual time (hour and minutes) to estimate (later) the start time.
+
 
 # The body of the script.
 while True:
